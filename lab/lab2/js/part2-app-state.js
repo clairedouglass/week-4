@@ -32,11 +32,34 @@
        var one = justOne();
 ===================== */
 
+var phillyCrimeDataUrl = "https://raw.githubusercontent.com/CPLN692-MUSA611/datasets/master/json/philadelphia-crime-snippet.json";
+
 // We set this to HTTP to prevent 'CORS' issues
-var downloadData = $.ajax("http://");
-var parseData = function() {};
-var makeMarkers = function() {};
-var plotMarkers = function() {};
+//make ajax call
+var downloadData = $.ajax(phillyCrimeDataUrl);
+
+// define parse data function
+var parseData = function(data1) {
+  return JSON.parse(data1);
+};
+
+// define marker function
+var makeMarkers = function(data2) {
+  return _.map(data2, function(crimes) {
+    return L.marker([crimes.Lat, crimes.Lng]);
+  });
+};
+
+
+// define plot function
+var plotMarkers = function(data3) {
+   _.each(data3, function(mapped) {
+    mapped.addTo(map);
+  });
+
+  //return thing;
+  //console.log(thing);
+};
 
 
 /* =====================
@@ -52,7 +75,20 @@ var plotMarkers = function() {};
   user's input.
 ===================== */
 
-var removeMarkers = function() {};
+/* =====================
+var removeMarkers = function(data4) {
+  _.each(data4, function(marker) {
+    return map.removeLayer(marker)
+  })
+};
+===================== */
+
+var removeMarkers = function(data4) {
+  _.each(data4, function(marker) {
+    map.removeLayer(marker);
+  });
+};
+
 
 /* =====================
   Optional, stretch goal
@@ -84,7 +120,11 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
 
 downloadData.done(function(data) {
   var parsed = parseData(data);
+  console.log("Parse Data Function " + parsed);
   var markers = makeMarkers(parsed);
+  console.log("Markers Function " + markers);
   plotMarkers(markers);
+  console.log("Plot Function " + plotMarkers);
   removeMarkers(markers);
+  console.log("Remove Markers" + markers);
 });

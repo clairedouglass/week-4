@@ -1,11 +1,14 @@
 /* =================
 Add more styles here!
 ================= */
+* {
+  background-color: #e8eff4;
+}
 
 body {
     padding: 0;
     overflow: hidden;
-    font-family: helvetica, arial, sans-serif;
+    font-family: Verdana;
 }
 
 .map {
@@ -24,4 +27,58 @@ body {
     bottom: 0;
     overflow-y: auto;
     padding: 20px;
+}
+
+.header {
+  font-family: Verdana;
+}
+.box {
+  background-color: #99c4e5;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 2px;
+}
+.inbox {
+  font-size: 1em;
+  margin-left: 4px;
+  background-color: #99c4e5;
+}
+.type {
+  color: grey;
+  margin-top: -15px;
+  background-color: #99c4e5;
+  margin-left: 4px;
+}
+.wrap {
+  margin-top: -15px;
+  background-color: #99c4e5;
+  margin-left: 4px;
+}
+.break {
+  display: block;
+  color: white;
+  height: 5px;
+}
+#button {
+  background-color: #a5a8aa;
+  border: 1px solid black;
+  display: inline-block;
+  float: right;
+  padding: 2px;
+  margin-top: -45px;
+}
+#search {
+  background-color: white;
+  display: block;
+  height: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+#dropdown {
+  background-color: white;
+  display: block;
+  height: 20px;
+  width: 150px;
+  border: 2px solid black;
+  border-radius: 5px;
 }
